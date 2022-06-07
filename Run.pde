@@ -1,7 +1,7 @@
-Particle p[] =
+particle p[] =
 {
-  new Particle(30, 50),
-  new Particle(20, 90),
+  new particle(30, 50),
+  new particle(20, 90),
 };
 
 void setup()
@@ -12,7 +12,7 @@ void setup()
 void draw()
 {
   background(60);
-  for (Particle ins : p) {
+  for (particle ins : p) {
     ins.update();
     ins.display();
   }

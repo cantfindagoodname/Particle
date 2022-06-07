@@ -1,7 +1,7 @@
 import java.util.*;
 
 PVector g = new PVector(0,1);
-class Particle {
+class particle {
     int h;
     PVector p, v;
     float r;
@@ -9,7 +9,7 @@ class Particle {
     Vector<Trailing> trail = new Vector<Trailing>(512);
     
     // gravity :<PVector> g (0,+)
-    Particle(float _r, int hue)  
+    particle(float _r, int hue)  
     {                             
         h = hue;
         p = new PVector((float)Math.random()* (width-1) + 1, (float)Math.random()* (height-1)+1); 
