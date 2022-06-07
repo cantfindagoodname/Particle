@@ -2,14 +2,16 @@ import java.util.*;
 
 PVector g = new PVector(0,1);
 class Particle {
+    int h;
     PVector p, v;
     float r;
     
     Vector<Trailing> trail = new Vector<Trailing>(512);
     
     // gravity :<PVector> g (0,+)
-    Particle(float x, float y, float _r)  
-    {                                                                                                
+    Particle(float _r, int hue)  
+    {                             
+        h = hue;
         p = new PVector((float)Math.random()* (width-1) + 1, (float)Math.random()* (height-1)+1); 
         v = new PVector((float)Math.random()*5+1, (float)Math.random()*5+1);
         r = _r;
@@ -37,13 +39,13 @@ class Particle {
           v.y = abs(v.y);
         }
         
-        trail.add(new Trailing(p.x, p.y, r));
+        trail.add(new Trailing(p.x, p.y, r, h));
     }   
     
     void display()
     {
       noStroke();
-      fill(127);
+      fill(h);
       ellipse(p.x, p.y, r, r);
       
       for (Trailing t: trail) {
@@ -53,7 +55,6 @@ class Particle {
       if (trail.get(0).counter == 0) {
           trail.remove(0);
       }
-      println(trail.size());
     }
     
     void v_inc(float x, float y)

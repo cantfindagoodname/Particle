@@ -1,13 +1,14 @@
 class Trailing {
   PVector p;
   float r;
-  int counter, a;
+  int counter, a, h;
   
   float decay = 0.98;
   int frame = 256;
   
-  Trailing(float x, float y, float rad)
+  Trailing(float x, float y, float rad, int hue)
   {
+    h = hue;
     a = 255;
     p = new PVector(x, y);
     r = rad;
@@ -26,7 +27,7 @@ class Trailing {
   void display()
   {
     noStroke();
-    fill(127, a);
+    fill(h, a);
     ellipse(p.x, p.y, r, r);
   }
 }

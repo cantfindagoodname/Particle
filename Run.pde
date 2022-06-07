@@ -1,6 +1,7 @@
 Particle p[] =
 {
-  new Particle(100, 100, 30),
+  new Particle(30, 50),
+  new Particle(20, 90),
 };
 
 void setup()
