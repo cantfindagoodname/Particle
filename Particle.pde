@@ -5,16 +5,17 @@ class particle {
     int h;
     PVector p, v;
     float r;
+    color c;
     
     Vector<Trailing> trail = new Vector<Trailing>(512);
     
     // gravity :<PVector> g (0,+)
-    particle(float _r, int hue)  
+    particle(float _r, color col)  
     {                             
-        h = hue;
         p = new PVector((float)Math.random()* (width-1) + 1, (float)Math.random()* (height-1)+1); 
         v = new PVector((float)Math.random()*5+1, (float)Math.random()*5+1);
         r = _r;
+        c = col;
     }   
 
     void update() 
@@ -39,13 +40,13 @@ class particle {
           v.y = abs(v.y);
         }
         
-        trail.add(new Trailing(p.x, p.y, r, h));
+        trail.add(new Trailing(p.x, p.y, r, c));
     }   
     
     void display()
     {
+      fill(c);
       noStroke();
-      fill(h);
       ellipse(p.x, p.y, r, r);
       
       for (Trailing t: trail) {
